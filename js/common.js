@@ -54,10 +54,6 @@ $(function() {
 
 	var owl = $('.owl-carousel');
 
-	owl.on('initialize.owl.carousel', function(){
-		console.log("init");
-	});
-
 	$(document).on("ready", function(event){
 		var el = $(".events .owl-item.active");
 		el.each(function(index, el) {
@@ -86,7 +82,6 @@ $(function() {
 		el.each(function(index, el){
 			if($(this).hasClass("current")){
 				flag = true;
-				console.log("идея удалась");
 			}
 		});
 
