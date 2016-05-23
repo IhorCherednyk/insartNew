@@ -54,6 +54,10 @@ $(function() {
 
 	var owl = $('.owl-carousel');
 
+	owl.on('initialize.owl.carousel', function(){
+		console.log("init");
+	});
+
 	$(document).on("ready", function(event){
 		var el = $(".events .owl-item.active");
 		el.each(function(index, el) {
@@ -82,18 +86,16 @@ $(function() {
 		el.each(function(index, el){
 			if($(this).hasClass("current")){
 				flag = true;
-				console.log("идея удалась")
+				console.log("идея удалась");
 			}
 		});
 
 		if(flag){
-			console.log("у меня есть уже елемент");
 			flag = false;
 		}else {
 			$(".current").removeClass("current");
 			el.each(function(index, el) {
 				if(index == 0){
-					console.log("я все рано создам")
 					$(el).addClass("current");
 					var a = $(this.children).get(0).id;
 					var c = $(".events-slider-inner").find( $(".es-wrapper"));
@@ -152,7 +154,7 @@ $(function() {
 
 		// Check if the viewport is set, if the viewport is not set the SVG wont't scale.
 		if(!$svg.attr('viewBox') && $svg.attr('height') && $svg.attr('width')) {
-			$svg.attr('viewBox', '0 0 ' + $svg.attr('height') + ' ' + $svg.attr('width'))
+			$svg.attr('viewBox', '0 0 ' + $svg.attr('height') + ' ' + $svg.attr('width'));
 		}
 
 		// Replace image with new SVG
