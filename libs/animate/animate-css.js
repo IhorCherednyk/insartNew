@@ -10,7 +10,7 @@
 					ths.addClass(inEffect).css("opacity", "1");
 				}
 			}, {
-				offset: "60%"
+				offset: "50%"
 			});
 
 		});

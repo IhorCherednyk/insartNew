@@ -1,19 +1,25 @@
+$(document).on("ready", function(event){
+	var el = $(".events .owl-item.active");
+	el.each(function(index, el) {
+		if(index == 0){
+			$(el).addClass("current");
+			var a = $(this.children).get(0).id;
+			var c = $(".events-slider-inner").find( $(".es-wrapper") );
+			c.each(function(index,c){
+				$(this).removeClass("active");
+				if(c.dataset.name == a){
+					$(this).addClass("active main-anim");
+				}
+			});
+			return false;
+		}
+	});
+});
+	
 $(function() {
 
 	$(".btn").animated("zoomIn");
-	$(".manager-wrap").animated("fadeInLeft");
-	$(".contacts-wrap").animated("fadeInRight");
-	$(".es-wrapper").addClass("fadeIn animated");
-
-	$(".events").waypoint(function() {
-		$(".main-anim").find(".teach-wrap-left").addClass("fadeInLeftBig animated");
-		$(".main-anim").find(".teach-wrap-right").addClass("fadeInRightBig animated");
 	
-		this.destroy();	
-	}, {
-		offset : "60%"
-	});
-
 	$(".how").waypoint(function() {
 		$(".how-ittem span").each(function(index) {
 			var ths = $(this);
@@ -24,6 +30,27 @@ $(function() {
 	}, {
 		offset : "60%"
 	});
+
+	$(".events").waypoint(function() {
+		$(".main-anim").find(".teach-wrap-left").addClass("fadeInLeftBig animated");
+		$(".main-anim").find(".teach-wrap-right").addClass("fadeInRightBig animated");
+
+		this.destroy();	
+	}, {
+		offset : "60%"
+	});
+	$(".es-wrapper").addClass("fadeIn animated");
+
+	$(".manager-wrap").animated("fadeInLeft");
+	$(".contacts-wrap").animated("fadeInRight");
+	$(".btn").animated("zoomIn");
+
+
+
+
+
+
+
 
 	$(".slider").owlCarousel({
 		loop:true,
@@ -54,23 +81,7 @@ $(function() {
 
 	var owl = $('.owl-carousel');
 
-	$(document).on("ready", function(event){
-		var el = $(".events .owl-item.active");
-		el.each(function(index, el) {
-			if(index == 0){
-				$(el).addClass("current");
-				var a = $(this.children).get(0).id;
-				var c = $(".events-slider-inner").find( $(".es-wrapper") );
-				c.each(function(index,c){
-					$(this).removeClass("active");
-					if(c.dataset.name == a){
-						$(this).addClass("active main-anim");
-					}
-				});
-				return false;
-			}
-		});
-	});
+
 
 
 
@@ -110,15 +121,15 @@ $(function() {
 		$(".owl-item").removeClass("current");
 		var th = e.target.offsetParent;
 		$(th).addClass("current");
-			var a = $(this.children).get(0).id;
-			var c = $(".events-slider-inner").find( $(".es-wrapper"));
-			c.each(function(index,c){
-				$(this).removeClass("active");
-				if(c.dataset.name == a){
-					var th = $(this);
-					th.addClass("active");
-				}
-			});
+		var a = $(this.children).get(0).id;
+		var c = $(".events-slider-inner").find( $(".es-wrapper"));
+		c.each(function(index,c){
+			$(this).removeClass("active");
+			if(c.dataset.name == a){
+				var th = $(this);
+				th.addClass("active");
+			}
+		});
 	});
 
 
